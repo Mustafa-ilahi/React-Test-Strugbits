@@ -2,6 +2,7 @@ import './App.css';
 import { useEffect, useState } from 'react';
 import userAvatar from '../src/assets/user-avatar.png';
 import socialIcons from '../src/assets/login-icons.PNG'
+import listIcon from '../src/assets/list-icon.PNG';
 
 function App() {
   
@@ -107,6 +108,15 @@ function App() {
         <div id="footer">
           <h2 id="logo-text">Logo</h2>
           <img src={socialIcons} id="social-icons"/>
+          <ul id="footer-list">
+            <li><img src={listIcon} style={{height:12}}/> About Us</li>
+            <li id="blog"><img src={listIcon} style={{height:12}}/> Blog</li>
+            <li id="contact-us"><img src={listIcon} style={{height:12}}/> Contact Us</li>
+            <div id="last-list">
+              <li><img src={listIcon} style={{height:12}}/> Members</li>
+              <li id="more"><img src={listIcon} style={{height:12}}/> More</li>
+            </div>
+          </ul>
         </div>
     </div>
   );
