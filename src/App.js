@@ -1,5 +1,7 @@
 import './App.css';
 import { useEffect, useState } from 'react';
+import userAvatar from '../src/assets/user-avatar.png';
+import socialIcons from '../src/assets/login-icons.PNG'
 
 function App() {
   
@@ -29,43 +31,83 @@ function App() {
           })
           setDisplay(true);
         }
-        else{
-          // alert("invalid")
-        }
       })}
     }
     console.log("userAvail==>",userAvailability)
   return (
     <div className="App">
-      {/* <h1>Hello Project</h1> */}
+      <div id="header"></div>
+      <br />
+      <div id="all">
+        <div id="one">
+          <span>All</span>
+        </div>
+        <div id="two">
+          <span>People</span>
+        </div>
+        <div id="three">
+          <span>Startups</span>
+        </div>
+      </div>
+        <h2>Sort by</h2>
+
+        <div id="top-third-div">
+          <div id="relevance">
+            <span>Relevance</span>
+          </div>
+          <div id="popularity">
+            <span>Popularity</span>
+          </div>
+          <div id="newness">
+            <span>Newness</span>
+          </div>
+          <div id="random">
+            <span>Random</span>
+          </div>
+          <div id="name">
+            <span>Name</span>
+          </div>
+      </div>
+      <br />
       <input type="text" placeholder="Search by name, username, zipcode, address" style={{width: 300}} onChange={(e)=> setInputValue(e.target.value)}/>
       <button onClick={()=> searchUser()}>Search</button>
+      <br/><br/>
       {!display ? 
       <>
+      
       {data.map((item,i)=>{
         return (
-          <div key={i}>
-          <ul style={{listStyle:"none"}}>
-          <li>Name: {item.name}</li>
-          <li>Username: {item.username}</li>
+          <div key={i} id="main-div">
+          <ul id="user-info">
+          <li id="img-list"><img src={userAvatar} id="user-avatar"/></li>
+          <div id="name-email">
+          <li id="username"> {item.username}</li>
+          <li id="email">{item.email}</li>
+          <li id="company">Company</li>
+          </div>
           </ul>
           </div>
           )
         })}
         </>
         :
-        <>
+        <div id="user-found">
             <h2>User Found</h2>
-            <ul style={{listStyle:"none"}}>
-            <li>{userAvailability.name}</li>
-            <li>{userAvailability.username}</li>
-            <li>{userAvailability.zipcode}</li>
-            <li>{userAvailability.street}</li>
-            <li>{userAvailability.suite}</li>
-            <li>{userAvailability.city}</li>
+            <img src={userAvatar} id="user-avatar"/>
+            <ul id="user-availability">
+            <li><b>Name: </b> {userAvailability.name}</li>
+            <li><b>Username: </b> {userAvailability.username}</li>
+            <li><b>Zipcode: </b> {userAvailability.zipcode}</li>
+            <li><b>Street: </b> {userAvailability.street}</li>
+            <li><b>Suite: </b> {userAvailability.suite}</li>
+            <li><b>City: </b> {userAvailability.city}</li>
             </ul>
-          </>
+          </div>
         }
+        <div id="footer">
+          <h2 id="logo-text">Logo</h2>
+          <img src={socialIcons} id="social-icons"/>
+        </div>
     </div>
   );
 }
